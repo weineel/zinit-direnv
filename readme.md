@@ -15,8 +15,8 @@ When what's needed is an atclone'' hook to e.g. install a software (plus atpull'
 # atpull"%atclone" :If the same command is used for installation and updating.
 
 zinit as"program" pick"direnv" \
-  atclone"curl -sfL https://direnv.net/install.sh | bash" \
-  atpull"curl -sfL https://direnv.net/install.sh | bash" \
+  atclone"export bin_path=${ZINIT[PLUGINS_DIR]}/weineel---zinit-direnv && curl -sfL https://direnv.net/install.sh | bash && unset bin_path" \
+  atpull"%atclone" \
   run-atpull \
   for weineel/zinit-direnv
 eval "$(direnv hook zsh)"
